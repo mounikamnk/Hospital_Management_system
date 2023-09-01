@@ -1,0 +1,31 @@
+{% include 'Base.html' %}
+{% include 'navigation.html' %}
+
+{% block content %}
+
+    <center>
+        <h1>Add Appointment</h1>
+            <form method="POST">
+                {% csrf_token %}
+                    <label for="Name">Doctor name</label>
+                    <select name="doctor" id="Name" multiple>
+                        {% for i in doctor %}
+                            <option value="{{i}}">{{i.Name}}</option>
+                        {% endfor %}
+                    </select><br>
+                    <br>
+                    <label for="name">Patient name</label>
+                    <select name="patient" id="name" multiple>
+                        {% for i in patient %}
+                            <option value="{{i}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select><br><br>
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date"><br><br>
+                    <label for="time">Time</label>
+                    <input type="time" name="time" id="time"><br><br>
+                <input type="submit" value="submit" class="btn btn-success">
+            </form>
+    </center>
+{% endblock content %}
+{% include 'footer.html' %}

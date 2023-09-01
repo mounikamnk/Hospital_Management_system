@@ -1,0 +1,28 @@
+{% include 'Base.html' %}
+{% include 'navigation.html' %}
+{% block content %}
+    <style>
+        body
+        {
+        background-image: url('data:image/png;base64,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');
+        background-repeat: no-repeat;
+        background-size:cover;
+        }
+    </style>
+    <center>
+        <h1>Add Doctor</h1>
+            <form method="POST">
+                {% csrf_token %}
+                    <label for="Name">Doctor name</label>
+                    <input type="text" name="Name" id="Name"><br>
+                    <br>
+                    <label for="mobile">mobile</label>
+                    <input type="text" name="mobile" id="mobile"><br><br>
+                    <label for="special">special</label>
+                    <input type="text" name="special" id="special"><br><br>
+                <input type="submit" value="submit" class="btn btn-success">
+            </form>
+    </center>
+    
+{% endblock content %}
+{% include 'footer.html' %}
