@@ -23,7 +23,7 @@
                     <td>{{i.mobile}}</td>
                     <td>{{i.gender}}</td>
                     <td>{{i.address}}</td>
-                    <td><a href="{% url 'Delete_Patient' i.id %}" onclick="return confirm('Are u sure u want to delete ?')"  class="btn btn-primary">delete</a></td>
+                    <td><a href="{% url 'delete_Patient' i.id %}" onclick="return confirm('Are u sure u want to delete ?')"  class="btn btn-primary">delete</a></td>
 
                 </tr>
                 {% endfor %}

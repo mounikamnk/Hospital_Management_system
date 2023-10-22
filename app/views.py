@@ -14,7 +14,7 @@ def contact(request):
     return render(request,'contact.html')
 
 @login_required
-def Index(request):
+def index(request):
     doctor=Doctor.objects.all()
     patient=Patient.objects.all()
     appoint=Appointment.objects.all()
@@ -39,7 +39,7 @@ def user_login(request):
             if AUO.is_active:
                 login(request,AUO)
                 request.session['username']=username
-                return HttpResponseRedirect(reverse('Index'))
+                return HttpResponseRedirect(reverse('index'))
             else:
                 return HttpResponse('Not a Active User')
         else:
@@ -53,38 +53,38 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('user_login'))
 @login_required
-def View_Doctor(request):
+def view_Doctor(request):
     DOC=Doctor.objects.all()
     d={'DOC':DOC}
     return render(request,'View_Doctor.html',d)
 @login_required
-def Delete_Doctor(request,pid):
+def delete_Doctor(request,pid):
     doctor=Doctor.objects.get(id=pid)
     doctor.delete()
-    return HttpResponseRedirect(reverse('View_Doctor'))
+    return HttpResponseRedirect(reverse('view_Doctor'))
 @login_required
-def Add_Doctor(request):
+def add_Doctor(request):
     if request.method=='POST':
         n=request.POST['Name']
         m=request.POST['mobile']
         s=request.POST['special']
         DO=Doctor.objects.get_or_create(Name=n,mobile=m,special=s)[0]
         DO.save()
-        return HttpResponseRedirect(reverse('View_Doctor'))
+        return HttpResponseRedirect(reverse('view_Doctor'))
     return render(request,'Add_Doctor.html')
 
 @login_required
-def View_Patient(request):
+def view_Patient(request):
     PAT=Patient.objects.all()
     d={'PAT':PAT}
     return render(request,'View_Patient.html',d)
 @login_required
-def Delete_Patient(request,pid):
+def delete_Patient(request,pid):
     patient=Patient.objects.get(id=pid)
     patient.delete()
-    return HttpResponseRedirect(reverse('View_Patient'))
+    return HttpResponseRedirect(reverse('view_Patient'))
 @login_required
-def Add_Patient(request):
+def add_Patient(request):
     if request.method=='POST':
         n=request.POST['name']
         m=request.POST['mobile']
@@ -92,11 +92,11 @@ def Add_Patient(request):
         a=request.POST['address']
         PO=Patient.objects.get_or_create(name=n,mobile=m,gender=g,address=a)[0]
         PO.save()
-        return HttpResponseRedirect(reverse('View_Patient'))
+        return HttpResponseRedirect(reverse('view_Patient'))
     return render(request,'Add_Patient.html')
 
 @login_required
-def Add_Appoint(request):   
+def add_Appoint(request):   
     doctor1=Doctor.objects.all()
     patient1=Patient.objects.all()
     d={'doctor':doctor1,'patient':patient1}
@@ -115,18 +115,18 @@ def Add_Appoint(request):
         else:
             AO=Appointment.objects.get_or_create(Doctor=doctor,Patient=patient,date=date,time=time)[0]
             AO.save()
-            return HttpResponseRedirect(reverse('View_Appoint'))    
+            return HttpResponseRedirect(reverse('view_Appoint'))    
     return render(request,'Add_Appoint.html',d)
 
 @login_required
-def View_Appoint(request):
+def view_Appoint(request):
     APT=Appointment.objects.all()
     d={'APT':APT}
-    return render(request,'View_Appoint.html',d)
+    return render(request,'view_Appoint.html',d)
 
 @login_required
-def Delete_Appoint(request,pid):
+def delete_Appoint(request,pid):
     Appoint=Appointment.objects.get(id=pid)
     Appoint.delete()
-    return HttpResponseRedirect(reverse('View_Appoint'))
+    return HttpResponseRedirect(reverse('view_Appoint'))
 

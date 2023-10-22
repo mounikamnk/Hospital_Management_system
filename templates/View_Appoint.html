@@ -23,7 +23,7 @@
                     <td>{{i.Patient}}</td>
                     <td>{{i.date}}</td>
                     <td>{{i.time}}</td>
-                    <td><a href="{% url 'Delete_Appoint' i.id %}" onclick="return confirm('Are u sure u want to delete ?')"  class="btn btn-primary">delete</a></td>
+                    <td><a href="{% url 'delete_Appoint' i.id %}" onclick="return confirm('Are u sure u want to delete ?')"  class="btn btn-primary">delete</a></td>
 
                 </tr>
                 {% endfor %}

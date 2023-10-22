@@ -23,15 +23,15 @@
             {% endif %}
             {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'Index' %}">Dashboard</a>
+                <a class="nav-link" href="{% url 'index' %}">Dashboard</a>
               </li>
               <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Doctor
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url 'View_Doctor' %}">View-Doctor</a>
-                  <a class="dropdown-item" href="{% url 'Add_Doctor' %}">Add-Doctor</a>
+                  <a class="dropdown-item" href="{% url 'view_Doctor' %}">View-Doctor</a>
+                  <a class="dropdown-item" href="{% url 'add_Doctor' %}">Add-Doctor</a>
                 </div>
               </li>
               <li class="nav-item dropdown ">
@@ -39,8 +39,8 @@
                   Patient
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url 'View_Patient' %}">View-Patient</a>
-                  <a class="dropdown-item" href="{% url 'Add_Patient' %}">Add-Patient</a>
+                  <a class="dropdown-item" href="{% url 'view_Patient' %}">View-Patient</a>
+                  <a class="dropdown-item" href="{% url 'add_Patient' %}">Add-Patient</a>
                 </div>
               </li>
               <li class="nav-item dropdown ">
@@ -48,8 +48,8 @@
                   Appointment
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url 'View_Appoint' %}">View-Appointment</a>
-                  <a class="dropdown-item" href="{% url 'Add_Appoint' %}">Add-Appointment</a>
+                  <a class="dropdown-item" href="{% url 'view_Appoint' %}">View-Appointment</a>
+                  <a class="dropdown-item" href="{% url 'add_Appoint' %}">Add-Appointment</a>
                 </div>
               </li>
             {% endif %}
