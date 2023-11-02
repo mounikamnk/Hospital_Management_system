@@ -4,26 +4,42 @@
 <style>
     body
     {
-    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fgfycat.com%2Fgifs%2Ftag%2Fdoctor&psig=AOvVaw1Xtzi5KiQ2H8EmHYbC5ygM&ust=1692433062952000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCMjFk8_i5YADFQAAAAAdAAAAABA1');
+    background-image: url('https://media.gettyimages.com/id/1331874864/video/4k-video-footage-of-a-female-doctor-having-a-consultation-with-a-young-woman.jpg?s=640x640&k=20&c=Qae1TyYfBJ0oS1M2vWjYV14L6GaEEu_cYQI_er9P9oc=');    
     background-repeat: no-repeat;
     background-size:cover;
+}
+.nvn
+{
+    position: relative;
+    left: 150px;
 }
 </style>
     <center>
         <h1>Add patient</h1>
+        <table>
             <form method="POST">
                 {% csrf_token %}
-                    <label for="name">Patient name</label>
-                    <input type="text" name="name" id="name"><br>
-                    <br>
-                    <label for="mobile">Mobile</label>
-                    <input type="text" name="mobile" id="mobile"><br><br>
-                    <label for="gender">Gender</label>
-                    <input type="text" name="gender" id="gender"><br><br>
-                    <label for="address">Address</label>
-                    <input type="text" name="address" id="address"><br><br>
-                <input type="submit" value="submit" class="btn btn-success">
+                <tr>
+                   <td> <label for="name">Patient name</label></td>
+                   <td> <input type="text" name="name" id="name"></td>
+                </tr>
+                <tr>
+                   <td> <label for="mobile">Mobile</label></td>
+                   <td> <input type="text" name="mobile" id="mobile"></td>
+                </tr>
+                <tr>
+                  <td>  <label for="gender">Gender</label></td>
+                  <td>  <input type="text" name="gender" id="gender"></td>
+                </tr>
+                <tr>
+                  <td>  <label for="address">Address</label></td>
+                   <td> <input type="text" name="address" id="address"></td>
+                </tr>
+                <tr>
+                <td><input type="submit" value="submit" class="btn btn-warning nvn"></td>
+                </tr>
             </form>
+            </table>
     </center>
 {% endblock content %}
 {% include 'footer.html' %}
